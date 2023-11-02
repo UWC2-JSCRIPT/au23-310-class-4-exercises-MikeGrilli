@@ -7,7 +7,7 @@
  */
 const foodIsCooked = function(kind, internalTemp, doneness) {
   // Write function HERE
-
+ 
 }
 
 

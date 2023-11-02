@@ -56,6 +56,14 @@ const cards = [
 /**
  * Logs every property of every card to the console
  *
- * @param {array} deck A deck of cards
+ * @param {array}de deck A deck of cards
  */
-const logCardDeck = deck => {};
+const logCardDeck = deck => {
+  deck.forEach(card => {
+    for (let key in card) {
+      console.log(`${key}: ${card[key]}`);
+      }
+  })
+}
+
+logCardDeck(cards)

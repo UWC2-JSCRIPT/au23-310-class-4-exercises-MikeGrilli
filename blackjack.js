@@ -6,7 +6,6 @@
 //  * @param {string} name - The name of the player
 //  */
 // class CardPlayer {}; //TODO
-
 // // CREATE TWO NEW CardPlayers
 // const dealer; // TODO
 // const player; // TODO

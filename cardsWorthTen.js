@@ -21,7 +21,16 @@ const cards = [
  * @param {array} cards
  * @return {string} displayVal
  */
-const cardsWorthTen = cards => {};
+const cardsWorthTen = cards => {
 
-console.log(cardsWorthTen(cards));
+  let arrayOfCards = []
+
+  cards.forEach(card => {
+    if(card.val == 10) {
+      arrayOfCards.push(card.displayVal)
+    } 
+  })
+  return arrayOfCards.toString()
+};
+console.log(cardsWorthTen(cards))
 // should return/log "10, Jack, Queen, King"
