@@ -6,8 +6,15 @@
  * @returns {boolean} isCooked
  */
 const foodIsCooked = function(kind, internalTemp, doneness) {
-  // Write function HERE
- 
+ if(kind === "beef" && internalTemp >= 138 )  {
+  return `${true} The meat is ${doneness}`
+ }
+ else if(kind === "chicken" && internalTemp >= 165) {
+  if(internalTemp > 165) {
+    return true
+  }
+ }
+  else {return false}
 }
 
 
@@ -17,4 +24,4 @@ console.log(foodIsCooked('chicken', 90)); // should be false
 console.log(foodIsCooked('chicken', 190)); // should be true
 console.log(foodIsCooked('beef', 138, 'well')); // should be false
 console.log(foodIsCooked('beef', 138, 'medium')); // should be true
-console.log(foodIsCooked('beef', 138, 'rare')); // should be true
+console.log(foodIsCooked('beef', 138, 'rare')); // should be true 
