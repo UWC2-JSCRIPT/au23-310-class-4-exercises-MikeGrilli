@@ -2,50 +2,49 @@
  * Returns an array of 52 Cards
  * @returns {Array} deck - a deck of cards
  */
-const getDeck = () => {
+
+function getDeck() {
   const deck = []
-  const suits = ['hearts', 'diamonds', 'clubs', 'spades']
-  
+  const suits = ["Heart", "Diamond", "Clover", "Spade"]
+  suits.forEach(item => {
 
-  for (let index = 0; index < suits.length; index++) {
-    // create an array of 13 objects
-    for (let j = 1; j <= 13; j++) {
-      // for each loop, push a card object to the deck
+      for(let i = 1; i <= 13; i ++) {
+          
+          const cards = {
+                    val : i,
+                    displayVal: i,
+                    suit: item
+                  }
+                  
+          if(cards.displayVal === 1) {
+            cards.displayVal = "Ace"
+          } 
+          else if( cards.displayVal === 11) {
+            cards.displayVal = "Jack"
+            cards.val = 10
+          } 
+          else if( cards.displayVal === 12) {
+            cards.displayVal = "Queen"
+            cards.val = 10
+          } 
+          else if( cards.displayVal === 13) {
+            cards.displayVal = "King"
+            cards.val = 10
+          }
 
-      // special cases for when j > 10
-      let displayVal = j
+          if(cards.displayVal === "Ace") {
+              cards.val = 11 
 
-      if(j ==1 ) {
-        displayVal = 'Ace'
-      } else if(j===11) {
-        displayVal = 'Jack'
-      } else if(j===12) {
-        displayVal = 'Queen'
-      } else if(j === 13) {
-        displayVal = 'King'
+          }
+
+      deck.push(cards)
+
       }
-     
-
-      const card = {
-        val: j,
-        displayVal: displayVal,
-        suit: suits[index],
-      }
-
-      if (displayVal === 'Ace') {
-        card.val = 11
-      } else {
-        card.val= j
-      }
-      
-      deck.push(card)
-    }
-  }
+  })
   return deck
 }
-console.log(getDeck())
 
-
+console.log(getDeck()) 
 // CHECKS
 const deck = getDeck()
 console.log(`Deck length equals 52? ${deck.length === 52}`)
