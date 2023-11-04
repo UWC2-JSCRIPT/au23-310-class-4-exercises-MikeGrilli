@@ -6,6 +6,7 @@
 function getDeck() {
   const deck = []
   const suits = ["Heart", "Diamond", "Clover", "Spade"]
+  
   suits.forEach(item => {
 
       for(let i = 1; i <= 13; i ++) {
