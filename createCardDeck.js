@@ -11,34 +11,34 @@ function getDeck() {
 
       for(let i = 1; i <= 13; i ++) {
           
-          const cards = {
+          const card = {
                     val : i,
                     displayVal: i,
                     suit: cardType
                   }
                   
-          if(cards.displayVal === 1) {
-            cards.displayVal = "Ace"
+          if(card.displayVal === 1) {
+            card.displayVal = "Ace"
           } 
-          else if( cards.displayVal === 11) {
-            cards.displayVal = "Jack"
-            cards.val = 10
+          else if( card.displayVal === 11) {
+            card.displayVal = "Jack"
+            card.val = 10
           } 
-          else if( cards.displayVal === 12) {
-            cards.displayVal = "Queen"
-            cards.val = 10
+          else if( card.displayVal === 12) {
+            card.displayVal = "Queen"
+            card.val = 10
           } 
-          else if( cards.displayVal === 13) {
-            cards.displayVal = "King"
-            cards.val = 10
+          else if( card.displayVal === 13) {
+            card.displayVal = "King"
+            card.val = 10
           }
 
-          if(cards.displayVal === "Ace") {
-              cards.val = 11 
+          if(card.displayVal === "Ace") {
+              card.val = 11 
 
           }
 
-      deck.push(cards)
+      deck.push(card)
 
       }
   })
