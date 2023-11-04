@@ -5,10 +5,25 @@
 //  * @constructor
 //  * @param {string} name - The name of the player
 //  */
-// class CardPlayer {}; //TODO
+class CardPlayer { 
+    constructor(name,cards) {
+        this.name = name,
+        this.cards = []
+    }
+}; 
+
+//TODO
 // // CREATE TWO NEW CardPlayers
 // const dealer; // TODO
 // const player; // TODO
+
+
+const dealer = new CardPlayer("Nicole")
+const player = new CardPlayer("Mike")
+
+console.log(dealer)
+
+
 
 // /**
 //  * Calculates the score of a Blackjack hand
@@ -17,10 +32,10 @@
 //  * @returns {number} blackJackScore.total
 //  * @returns {boolean} blackJackScore.isSoft
 //  */
-// const calcPoints = (hand) => {
-//   // CREATE FUNCTION HERE
+const calcPoints = (hand) => {
+  const randomCard = Math.random() * 21
 
-// }
+}
 
 // /**
 //  * Determines whether the dealer should draw another card.
@@ -61,6 +76,14 @@
 //   const displayHand = player.hand.map((card) => card.displayVal);
 //   console.log(`${player.name}'s hand is ${displayHand.join(', ')} (${calcPoints(player.hand).total})`);
 // }
+
+
+
+
+
+
+
+
 
 // /**
 //  * Runs Blackjack Game

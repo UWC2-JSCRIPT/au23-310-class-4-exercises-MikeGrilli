@@ -8,3 +8,4 @@ const makeCoffee = (isHot) => {
   }
   return coffee
 }
+
