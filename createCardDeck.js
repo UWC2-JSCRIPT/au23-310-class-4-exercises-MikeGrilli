@@ -6,15 +6,15 @@
 function getDeck() {
   const deck = []
   const suits = ["Heart", "Diamond", "Clover", "Spade"]
-  
-  suits.forEach(item => {
+
+  suits.forEach(cardType => {
 
       for(let i = 1; i <= 13; i ++) {
           
           const cards = {
                     val : i,
                     displayVal: i,
-                    suit: item
+                    suit: cardType
                   }
                   
           if(cards.displayVal === 1) {
