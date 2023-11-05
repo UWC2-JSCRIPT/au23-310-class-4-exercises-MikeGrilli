@@ -2,7 +2,7 @@
  * Returns an array of 52 Cards
  * @returns {Array} deck - a deck of cards
  */
-
+//assignment createCardDeck
 function getDeck() {
   const deck = []
   const suits = ["Heart", "Diamond", "Clover", "Spade"]
