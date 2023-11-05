@@ -23,10 +23,9 @@ const player = new CardPlayer("Nike", [])
 //  * @returns {number} blackJackScore.total
 //  * @returns {boolean} blackJackScore.isSoft
 //  */
-// const calcPoints = (hand) => {
-//   // CREATE FUNCTION HERE
-
-// }
+const calcPoints = (hand) => {
+  
+}
 
 // /**
 //  * Determines whether the dealer should draw another card.

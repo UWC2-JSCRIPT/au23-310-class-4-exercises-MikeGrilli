@@ -7,7 +7,7 @@ function getDeck() {
   const deck = []
   const suits = ["Heart", "Diamond", "Clover", "Spade"]
 
-  suits.forEach(cardType => {
+  suits.forEach(cardType => { 
 
       for(let i = 1; i <= 13; i ++) {
           
