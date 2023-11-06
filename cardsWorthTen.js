@@ -30,7 +30,7 @@ const cardsWorthTen = cards => {
       arrayOfCards.push(card.displayVal)
     } 
   })
-  return arrayOfCards.toString()
+  return arrayOfCards.join(', ')
 };
 console.log(cardsWorthTen(cards))
 // should return/log "10, Jack, Queen, King"

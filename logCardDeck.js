@@ -68,8 +68,10 @@ const cards = [
 
 const logCardDeck = deck => {
   deck.map(card => {
+  console.log(`__________________`)
     for (let key  in card) {
-       console.log(`${key}: ${card[key]}`);
+      console.log(' ')
+      console.log(`${key}: ${card[key]}`);
        }
     })
 }
