@@ -74,7 +74,7 @@ dealer.drawCard()
 dealer.drawCard()
 
 console.log(player)
-console.log(dealer)
+console.log(dealer) 
 
 // /**
 //  * Calculates the score of a Blackjack hand
