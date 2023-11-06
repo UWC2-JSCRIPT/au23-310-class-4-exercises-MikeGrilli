@@ -2,52 +2,49 @@
  * Returns an array of 52 Cards
  * @returns {Array} deck - a deck of cards
  */
-//assignment createCardDeck
-function getDeck() {
+const getDeck = () => {
   const deck = []
-  const suits = ["Heart", "Diamond", "Clover", "Spade"]
-
+  const suits = ['hearts', 'spades', 'clubs', 'diamonds']
   suits.forEach(cardType => { 
 
-      for(let i = 1; i <= 13; i ++) {
-          
-          const card = {
-                    val : i,
-                    displayVal: i,
-                    suit: cardType
-                  }
-                  
-          if(card.displayVal === 1) {
-            card.displayVal = "Ace"
-          } 
-          else if( card.displayVal === 11) {
-            card.displayVal = "Jack"
-            card.val = 10
-          } 
-          else if( card.displayVal === 12) {
-            card.displayVal = "Queen"
-            card.val = 10
-          } 
-          else if( card.displayVal === 13) {
-            card.displayVal = "King"
-            card.val = 10
-          }
+        for(let i = 1; i <= 13; i ++) {
+            
+            const card = {
+                val : i,
+                displayVal: i,
+                suit: cardType
+            }
+                    
+            if(card.displayVal === 1) {
+              card.displayVal = "Ace"
+            } 
+            else if( card.displayVal === 11) {
+              card.displayVal = "Jack"
+              card.val = 10
+            } 
+            else if( card.displayVal === 12) {
+              card.displayVal = "Queen"
+              card.val = 10
+            } 
+            else if( card.displayVal === 13) {
+              card.displayVal = "King"
+              card.val = 10
+            }
+  
+            if(card.displayVal === "Ace") {
+                card.val = 11 
+            }
+  
+        deck.push(card)
+  
+        }
+    })
+    return deck
+  }
 
-          if(card.displayVal === "Ace") {
-              card.val = 11 
-
-          }
-
-      deck.push(card)
-
-      }
-  })
-  return deck
-}
-
-console.log(getDeck()) 
 // CHECKS
 const deck = getDeck()
+
 console.log(`Deck length equals 52? ${deck.length === 52}`)
 
 const randomCard = deck[Math.floor(Math.random() * 52)]
