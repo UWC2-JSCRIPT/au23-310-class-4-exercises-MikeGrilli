@@ -135,13 +135,13 @@ const determineWinner = (playerScore, dealerScore) => {
   let output = ''
   
   if(playerScore === 21 || playerScore > dealerScore) {
-    output = `Player: ${playerScore} Dealer ${dealerScore}. Player wins!`
+    output = `Player: ${playerScore} | Dealer: ${dealerScore}. Player wins!`
   } 
   else if(dealerScore > playerScore) {
-    output = `Dealer: ${dealerScore} Player: ${playerScore}. Dealer wins!`
+    output = `Dealer: ${dealerScore} | Player: ${playerScore}. Dealer wins!`
   } 
   else if(dealerScore === playerScore) {
-    output `Dealer: ${dealerScore} Player: ${playerScore}. Draw`
+    output `Dealer: ${dealerScore} | Player: ${playerScore}. Draw`
   }
   return output
 
