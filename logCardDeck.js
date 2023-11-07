@@ -58,22 +58,13 @@ const cards = [
  *
  * @param {array}de deck A deck of cards
  */
-// const logCardDeck = deck => {
-//   deck.forEach(card => {
-//     for (let key in card) {
-//       console.log(`${key}: ${card[key]}`);
-//       }
-//   })
-// }
 
 const logCardDeck = deck => {
-  deck.map(card => {
-  console.log(`__________________`)
-    for (let key in card) {
-      console.log(' ')
-      console.log(`${key}: ${card[key]}`);
-       }
-    })
+  deck.forEach(card => {
+    for(let key in card) {
+      console.log( `${key}: ${card[key]}` )
+    }
+  });
 }
 
 logCardDeck(cards)
