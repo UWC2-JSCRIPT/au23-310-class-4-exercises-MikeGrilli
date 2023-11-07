@@ -1,7 +1,7 @@
 //import {getDeck} from './createCardDeck.js'
 //const blackjackDeck = getDeck();
 
-const { faPersonMilitaryRifle } = require("@fortawesome/free-solid-svg-icons")
+
 
 const blackjackDeck = () => {
   const deck = []
@@ -52,8 +52,8 @@ const blackjackDeck = () => {
 //  * @param {string} name - The name of the player
 //  */
 class CardPlayer {
-  constructor(player, hand) {
-    this.player = player
+  constructor(name, hand) {
+    this.name = name
     this.hand = []
   }
 
@@ -61,13 +61,12 @@ class CardPlayer {
       const randomNumber = Math.floor(Math.random() * 52)
       const card = blackjackDeck()
       this.hand.push(card[randomNumber])
-      return { name: this.name, hand: this.hand };
   }
 }; //TODO
 
 // // CREATE TWO NEW CardPlayers
 const dealer = new CardPlayer("Dealer"); // TODO
-const player = new CardPlayer("Player"); // TODO
+const player = new CardPlayer("Mike"); // TODO
 
  
 
@@ -82,7 +81,8 @@ const calcPoints = (hand) => {
   let trackAce = []
   let isSoft = false
   let total = 0
-  hand.forEach(card => {
+  
+  hand.map(card => {
     if(card.displayVal === "Ace") {
       trackAce.push(card)
     }
@@ -117,7 +117,7 @@ const calcPoints = (hand) => {
 const dealerShouldDraw = (dealerHand) => {
   const getCalcObj = calcPoints(dealerHand)
   const points = getCalcObj.total
-  console.log(points)
+
   if(points <= 16) {
     return true
   } else {
@@ -133,18 +133,16 @@ const dealerShouldDraw = (dealerHand) => {
 //  * @returns {string} Shows the player's score, the dealer's score, and who wins
 //  */
 const determineWinner = (playerScore, dealerScore) => {
-  let output = ''
-  
-  if(playerScore === 21 || playerScore > dealerScore) {
-    output = `Player: ${playerScore} |  Dealer: ${dealerScore}. Player wins!`
+
+  if(playerScore > dealerScore) {
+   return `${player.name}: ${playerScore} |  Dealer: ${dealerScore}. Player wins!`
   } 
   else if(dealerScore > playerScore) {
-    output = `Dealer: ${dealerScore} | Player: ${playerScore}. Dealer wins!`
+    return  `Dealer: ${dealerScore} | ${player.name}: ${playerScore}. Dealer wins!`
   } 
   else if(dealerScore === playerScore) {
-    output `Dealer: ${dealerScore} | Player: ${playerScore}. Draw`
+    return `Dealer: ${dealerScore} | ${player.name}: ${playerScore}. Draw`
   }
-  return output
 
 }
 
@@ -166,8 +164,9 @@ const getMessage = (count, dealerCard) => {
  * @param {CardPlayer} player 
  */
 const showHand = (player) => {
-  const displayHand = player.hand.map((card) => card.displayVal);
-  console.log(`${player.name}'s hand is ${displayHand.join(', ')} (${calcPoints(player.hand).total})`);
+const displayHand = player.hand.map((card) => card.displayVal);
+console.log(`${player.name}'s hand is ${displayHand.join(', ')} (${calcPoints(player.hand).total})`)
+
 }
 
 /**
