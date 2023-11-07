@@ -3,15 +3,16 @@
  * @returns {Array} deck - a deck of cards
  */
 const getDeck = () => {
-  const deck = []
-  const suits = ['hearts', 'spades', 'clubs', 'diamonds']
+  let deck = []
+  let suits = ['hearts', 'spades', 'clubs', 'diamonds']
+
   suits.forEach(cardType => { 
 
         for(let i = 1; i <= 13; i ++) {
             
             const card = {
                 val : i,
-                displayVal: i,
+                displayVal: i.toString(),
                 suit: cardType
             }
                     
@@ -34,13 +35,13 @@ const getDeck = () => {
             if(card.displayVal === "Ace") {
                 card.val = 11 
             }
-  
         deck.push(card)
   
         }
     })
     return deck
   }
+
 
 // CHECKS
 const deck = getDeck()
