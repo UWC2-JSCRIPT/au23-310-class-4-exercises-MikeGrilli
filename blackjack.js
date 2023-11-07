@@ -13,7 +13,7 @@ const blackjackDeck = () => {
           
           const card = {
                     val : i,
-                    displayVal: i,
+                    displayVal: i.toString(),
                     suit: cardType
                   }
                   
@@ -61,6 +61,7 @@ class CardPlayer {
       const randomNumber = Math.floor(Math.random() * 52)
       const card = blackjackDeck()
       this.hand.push(card[randomNumber])
+      return { name: this.name, hand: this.hand };
   }
 }; //TODO
 
@@ -135,7 +136,7 @@ const determineWinner = (playerScore, dealerScore) => {
   let output = ''
   
   if(playerScore === 21 || playerScore > dealerScore) {
-    output = `Player: ${playerScore} | Dealer: ${dealerScore}. Player wins!`
+    output = `Player: ${playerScore} |  Dealer: ${dealerScore}. Player wins!`
   } 
   else if(dealerScore > playerScore) {
     output = `Dealer: ${dealerScore} | Player: ${playerScore}. Dealer wins!`
