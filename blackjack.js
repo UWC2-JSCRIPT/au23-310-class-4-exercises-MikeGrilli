@@ -1,6 +1,8 @@
 //import {getDeck} from './createCardDeck.js'
 //const blackjackDeck = getDeck();
 
+const { faPersonMilitaryRifle } = require("@fortawesome/free-solid-svg-icons")
+
 const blackjackDeck = () => {
   const deck = []
   const suits = ["Heart", "Diamond", "Clover", "Spade"]
@@ -66,9 +68,7 @@ class CardPlayer {
 const dealer = new CardPlayer("Dealer"); // TODO
 const player = new CardPlayer("Player"); // TODO
 
-dealer.drawCard()
-dealer.drawCard()
-
+ 
 
 // /**
 //  * Calculates the score of a Blackjack hand
@@ -78,26 +78,28 @@ dealer.drawCard()
 //  * @returns {boolean} blackJackScore.isSoft
 //  */
 const calcPoints = (hand) => {
+  let trackAce = []
   let isSoft = false
-  let total = 0;
-  let aces = []
-  
-  hand.forEach(item => {
-    total += item.val
-    if (item.displayVal === "Ace") {
-      aces.push(item)
+  let total = 0
+  hand.forEach(card => {
+    if(card.displayVal === "Ace") {
+      trackAce.push(card)
     }
+    total += card.val
   })
 
-  if (aces.length >= 1 && total < 21) {
-    isSoft = true 
-  } 
-
-  if (isSoft === true) {
-    total = total - 10
+  if(trackAce.length >= 1 && total <= 16) {
+    total -= 10
+    isSoft = true
   }
 
-  return { isSoft, total }
+  if(trackAce.length === 2) {
+    total -= 10
+    isSoft = true
+  }
+
+  return {total, isSoft}
+  
 }
 
 
@@ -112,10 +114,11 @@ const calcPoints = (hand) => {
 
 
 const dealerShouldDraw = (dealerHand) => {
-const {isSoft, total} = calcPoints(dealerHand)
-
-if(total <= 16 || isSoft) {
-  return true
+  const getCalcObj = calcPoints(dealerHand)
+  const points = getCalcObj.total
+  console.log(points)
+  if(points <= 16) {
+    return true
   } else {
     return false
   }
@@ -129,17 +132,20 @@ if(total <= 16 || isSoft) {
 //  * @returns {string} Shows the player's score, the dealer's score, and who wins
 //  */
 const determineWinner = (playerScore, dealerScore) => {
-  let resultOfMatch = ''
-  if(playerScore > dealerScore) {
-    resultOfMatch = `Plyer wins! Player score: ${playerScore}. Dealer score ${dealerScore}`
-  } else if(playerScore < dealerScore ) {
-    resultOfMatch = `Dealer wins! Dealer score: ${dealerScore}. Player score ${playerScore}`
-  } else if(playerScore === dealerScore) {
-    resultOfMatch = `Draw`
+  let output = ''
+  
+  if(playerScore === 21 || playerScore > dealerScore) {
+    output = `Player: ${playerScore} Dealer ${dealerScore}. Player wins!`
+  } 
+  else if(dealerScore > playerScore) {
+    output = `Dealer: ${dealerScore} Player: ${playerScore}. Dealer wins!`
+  } 
+  else if(dealerScore === playerScore) {
+    output `Dealer: ${dealerScore} Player: ${playerScore}. Draw`
   }
-  return resultOfMatch
-    
-  }
+  return output
+
+}
 
 
 
